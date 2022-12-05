@@ -1,0 +1,43 @@
+<!-- // Title: Assignment 7.3 Forms Validation
+// Author: Professor Krasso
+// Date: Dec 4 2022
+// Modified: Detres
+//Week-7 exercises/videos
+//https://www.youtube.com/watch?v=hAaoPOx_oIw
+https://material.angular.io/components
+https://stackoverflow.com/questions/70106472/property-fname-comes-from-an-index-signature-so-it-must-be-accessed-with-fn -->
+
+
+<div fxLayout="column">
+  <div fxFlex>
+    <mat-card class="signIn-container">
+      <mat-card-title>Student Sign In</mat-card-title>
+      <mat-card-subtitle>You Must Enter a Valid Student ID to Proceed</mat-card-subtitle>
+      <mat-card-content>
+        <div class="msg-error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+        <!-- error TS4111 error fixed -->
+        <div *ngIf="form.studentId.errors && form.studentId.touched">
+          <div class="msg-error"> Student ID must be a numeric value</div>
+        </div>
+        <mat-card class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
+          <!-- signInForm imported from sign-in.component.ts -->
+          <form [formGroup]="signInForm" (ngSubmit)="onSubmit() ; signInForm.reset()">
+            <mat-card-content>
+              <mat-form-field fxFlex appearance="fill">
+                <mat-label for="txtStudentId" id="lblStudentId">Student Id</mat-label>
+                <input type="text" matInput formControlName="studentId" id="txtStudentId" name="txtStudentId" />
+              </mat-form-field>
+            </mat-card-content>
+            <mat-card-actions>
+              <button type="submit" fxFlex mat-raised-button color="primary"
+                [disabled]="!signInForm.valid">Submit</button>
+            </mat-card-actions>
+          </form>
+
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

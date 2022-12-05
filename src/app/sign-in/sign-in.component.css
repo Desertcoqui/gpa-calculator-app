@@ -1,0 +1,22 @@
+/* // Title: Assignment 7.2- Template Driven and Reactive Forms
+// Author: Professor Krasso
+// Date: Dec 4 2022
+// Modified: Detres
+//Week-7 exercises/videos
+//https://www.youtube.com/watch?v=hAaoPOx_oIw */
+
+.signIn-container {
+  width: 35%;
+  margin: 15% auto;
+}
+
+.msg-error {
+  margin: 10px 0;
+  padding: 12px;
+  color: #d8000c;
+  background-color: #ffd2d2;
+}
+.signIn-container > mat-card-title,
+mat-card-subtitle {
+  text-align: center;
+}
